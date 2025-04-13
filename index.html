@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .light-theme {
+        background-color: #ffffff;
+        }
+
+        .dark-theme {
+            background-color: #1b1b1b;
+        }
+
+        #theme-toggle {
+        all: unset;              /* zera todos os estilos padrão */
+        cursor: pointer;         /* mostra a mãozinha */
+        display: inline-flex;    /* organiza as imagens horizontalmente */
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+</head>
+<body class="light-theme">
+        <!-- Botão de troca de tema -->
+        <button id="theme-toggle">
+            <img src="novo sunn.svg" id="sol">
+            <img src="crescent-moon-phase-outlined-symbol-of-weather-interface_icon-icons.com_54680.svg" id="lua">
+          </button>
+          
+          
+      
+        <script>
+          // Lógica para alternar o tema
+        const themeToggleButton = document.getElementById('theme-toggle');
+        const body = document.body;
+        const sol = document.getElementById('sol');
+        const lua = document.getElementById('lua');
+      
+          // Tamanho fixo inicial
+          const imageSize = "35px";
+          sol.style.width = imageSize;
+          sol.style.height = imageSize;
+          lua.style.width = imageSize;
+          lua.style.height = imageSize;
+      
+          // Exibe o ícone correto baseado no tema inicial
+          sol.style.display = "none";
+          lua.style.display = "inline-block";
+      
+          themeToggleButton.addEventListener('click', () => {
+            if (body.classList.contains('light-theme')) {
+              body.classList.remove('light-theme');
+              body.classList.add('dark-theme');
+      
+              sol.style.display = "inline-block";
+              lua.style.display = "none";
+            } else {
+              body.classList.remove('dark-theme');
+              body.classList.add('light-theme');
+      
+              sol.style.display = "none";
+              lua.style.display = "inline-block";
+            }
+          });
+        </script>
+</body>
+</html>
+  
